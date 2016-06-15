@@ -22,10 +22,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="scale">
-                                        <real key="value" value="2"/>
+                                        <real key="value" value="0.84999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -38,6 +41,9 @@
                             <constraint firstItem="Ezs-D0-qeN" firstAttribute="top" secondItem="aB7-GC-uIl" secondAttribute="bottom" id="hfS-bk-eN6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="aB7-GC-uIl" id="86J-u8-ZAr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sD0-Ok-O3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

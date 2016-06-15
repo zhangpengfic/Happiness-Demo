@@ -8,14 +8,17 @@
 
 import UIKit
 
-@IBDesignable
+protocol FaceViewDataSource {
+    func smilinessForFaceView(sender:FaceView)->Double
+}
+
 class FaceView: UIView {
 
-   @IBInspectable
+    @IBInspectable
     var lineWidth: CGFloat = 3 { didSet { setNeedsDisplay()}}
-@IBInspectable
+    @IBInspectable
     var color: UIColor = UIColor.blueColor() { didSet { setNeedsDisplay()}}
-   @IBInspectable
+    @IBInspectable
     var scale: CGFloat = 0.9 { didSet { setNeedsDisplay()}}
     
     var faceCenter: CGPoint {
@@ -25,15 +28,18 @@ class FaceView: UIView {
         return min(bounds.size.width, bounds.size.height) / 2 * scale
     }
 
-    private struct Scaling {
-        static let FaceRadiusToEyeRadiusRatio: CGFloat = 10
-        static let FaceRadiusToEyeOffsetRatio: CGFloat = 3
-        static let FaceRadiusToEyeSeparationRatio: CGFloat = 1.5
-        static let FaceRadiusToMouthWidthRatio: CGFloat = 1
-        static let FaceRadiusToMouthHeightRatio: CGFloat = 3
-        static let FaceRadiusToMouthOffsetRatio: CGFloat = 3
+    var dataSource:FaceViewDataSource!
+    
+    func scale(gesture:UIPinchGestureRecognizer) -> () {
+        if gesture.state == .Changed {
+            scale*=gesture.scale
+            gesture.scale=1
+        }
+        
     }
-
+    
+    
+    
     override func drawRect(rect: CGRect) {
         
         let facePath = UIBezierPath(arcCenter: faceCenter, radius: faceRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
@@ -44,15 +50,23 @@ class FaceView: UIView {
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
         
-        let smiliness = -0.75
+        let smiliness = dataSource.smilinessForFaceView(self)
+//        print("smiliness=\(smiliness)")
         let smilePath = bezierPathForSmile(smiliness)
         smilePath.stroke()
-
         
-        
+        self.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(self.scale(_:))))
     }
     
-    
+    private struct Scaling {
+        static let FaceRadiusToEyeRadiusRatio: CGFloat = 10
+        static let FaceRadiusToEyeOffsetRatio: CGFloat = 3
+        static let FaceRadiusToEyeSeparationRatio: CGFloat = 1.5
+        static let FaceRadiusToMouthWidthRatio: CGFloat = 1
+        static let FaceRadiusToMouthHeightRatio: CGFloat = 3
+        static let FaceRadiusToMouthOffsetRatio: CGFloat = 3
+    }
+
     private enum Eye { case Left, Right }
     private func bezierPathForEye(whichEye: Eye) -> UIBezierPath
     {
@@ -74,6 +88,7 @@ class FaceView: UIView {
             endAngle: CGFloat(2*M_PI),
             clockwise: true
         )
+        
         path.lineWidth = lineWidth
         return path
     }
