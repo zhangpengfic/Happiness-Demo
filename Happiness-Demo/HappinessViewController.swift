@@ -13,9 +13,21 @@ class HappinessViewController: UIViewController,FaceViewDataSource {
     @IBOutlet weak var faceView: FaceView!
         {
         didSet{
-            faceView.dataSource=self
+            faceView.dataSource=self//protocol
             faceView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(changeHappiness(_:))))
 //            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: #selector(faceView.scale(_:))))
+        }
+    }
+    
+    func smilinessForFaceView(sender: FaceView) -> Double {
+        return Double(happiness-50)/50.0
+    }//protocol
+    
+    var happiness : Int = 50{
+        didSet {
+            happiness = min(max(happiness, 0), 100)
+            print("happiness = \(happiness)")
+            faceView.setNeedsDisplay()
         }
     }
     
@@ -38,16 +50,6 @@ class HappinessViewController: UIViewController,FaceViewDataSource {
         }
     }
     
-    var happiness : Int = 50{
-        didSet {
-            happiness = min(max(happiness, 0), 100)
-            print("happiness = \(happiness)")
-            faceView.setNeedsDisplay()
-        }
-    }
-    
-    func smilinessForFaceView(sender: FaceView) -> Double {
-        return Double(happiness-50)/50.0
-    }
+
     
 }
