@@ -14,7 +14,7 @@ protocol FaceViewDataSource {
 
 class FaceView: UIView {
 
-    @IBInspectable
+    @IBInspectable 
     var lineWidth: CGFloat = 3 { didSet { setNeedsDisplay()}}
     @IBInspectable
     var color: UIColor = UIColor.blueColor() { didSet { setNeedsDisplay()}}
