@@ -28,7 +28,7 @@ class FaceView: UIView {
         return min(bounds.size.width, bounds.size.height) / 2 * scale
     }
 
-    var dataSource:FaceViewDataSource!//protocol
+    var dataSource:FaceViewDataSource!
     
     func scale(gesture:UIPinchGestureRecognizer) -> () {
         if gesture.state == .Changed {
@@ -50,7 +50,7 @@ class FaceView: UIView {
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
         
-        let smiliness = dataSource.smilinessForFaceView(self)//protocol
+        let smiliness = dataSource.smilinessForFaceView(self)
 //        print("smiliness=\(smiliness)")
         let smilePath = bezierPathForSmile(smiliness)
         smilePath.stroke()
