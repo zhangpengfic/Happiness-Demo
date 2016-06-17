@@ -9,11 +9,12 @@
 import UIKit
 
 class HappinessViewController: UIViewController,FaceViewDataSource {
-
+//protocel
+    
     @IBOutlet weak var faceView: FaceView!
         {
         didSet{
-            faceView.dataSource=self
+            faceView.dataSource=self//protocol
             faceView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(changeHappiness(_:))))
 //            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: #selector(faceView.scale(_:))))
         }
@@ -45,7 +46,7 @@ class HappinessViewController: UIViewController,FaceViewDataSource {
             faceView.setNeedsDisplay()
         }
     }
-    
+    //protocel
     func smilinessForFaceView(sender: FaceView) -> Double {
         return Double(happiness-50)/50.0
     }

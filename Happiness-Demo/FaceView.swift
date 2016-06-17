@@ -10,8 +10,9 @@ import UIKit
 
 protocol FaceViewDataSource {
     func smilinessForFaceView(sender:FaceView)->Double
-}
+}//portocel
 
+@IBDesignable
 class FaceView: UIView {
 
     @IBInspectable 
@@ -28,7 +29,7 @@ class FaceView: UIView {
         return min(bounds.size.width, bounds.size.height) / 2 * scale
     }
 
-    var dataSource:FaceViewDataSource!
+    var dataSource:FaceViewDataSource!//protocel
     
     func scale(gesture:UIPinchGestureRecognizer) -> () {
         if gesture.state == .Changed {
@@ -50,8 +51,8 @@ class FaceView: UIView {
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
         
-        let smiliness = dataSource.smilinessForFaceView(self)
-//        print("smiliness=\(smiliness)")
+        let smiliness = dataSource?.smilinessForFaceView(self) ?? 0.0//protocol必须这样写才有图形
+        print("smiliness=\(smiliness)")
         let smilePath = bezierPathForSmile(smiliness)
         smilePath.stroke()
         
