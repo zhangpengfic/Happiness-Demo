@@ -34,6 +34,7 @@ class HappinessViewController: UIViewController,FaceViewDataSource {
             if happinessChange != 0 {
                 happiness += happinessChange
                 gesture.setTranslation(CGPointZero, inView: faceView)
+                
             }
         default: break
         }
