@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB34C7831D1796A2006C54B4 /* PsychologistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34C7821D1796A2006C54B4 /* PsychologistViewController.swift */; };
 		BBC8598C1D0D466D0060287C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8598B1D0D466D0060287C /* AppDelegate.swift */; };
 		BBC859911D0D466D0060287C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC8598F1D0D466D0060287C /* Main.storyboard */; };
 		BBC859931D0D466D0060287C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBC859921D0D466D0060287C /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB34C7821D1796A2006C54B4 /* PsychologistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PsychologistViewController.swift; sourceTree = "<group>"; };
 		BBC859881D0D466D0060287C /* Happiness-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happiness-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC8598B1D0D466D0060287C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC859901D0D466D0060287C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		BBC8598A1D0D466D0060287C /* Happiness-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				BB34C7821D1796A2006C54B4 /* PsychologistViewController.swift */,
 				BBC859BB1D0D53230060287C /* HappinessViewController.swift */,
 				BBC859BD1D0D55790060287C /* FaceView.swift */,
 				BBC8598F1D0D466D0060287C /* Main.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB34C7831D1796A2006C54B4 /* PsychologistViewController.swift in Sources */,
 				BBC859BC1D0D53230060287C /* HappinessViewController.swift in Sources */,
 				BBC8598C1D0D466D0060287C /* AppDelegate.swift in Sources */,
 				BBC859BE1D0D55790060287C /* FaceView.swift in Sources */,
