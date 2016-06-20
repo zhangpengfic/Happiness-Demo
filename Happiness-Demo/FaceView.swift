@@ -52,7 +52,7 @@ class FaceView: UIView {
         bezierPathForEye(.Right).stroke()
         
         let smiliness = dataSource?.smilinessForFaceView(self) ?? 0.0//protocol必须这样写才有图形
-        print("smiliness=\(smiliness)")
+//        print("smiliness=\(smiliness)")
         let smilePath = bezierPathForSmile(smiliness)
         smilePath.stroke()
         
