@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FaceViewDataSource {
+protocol FaceViewDataSource : class {
     func smilinessForFaceView(sender:FaceView)->Double
 }//portocel
 
@@ -29,7 +29,7 @@ class FaceView: UIView {
         return min(bounds.size.width, bounds.size.height) / 2 * scale
     }
 
-    var dataSource:FaceViewDataSource!//protocel
+    weak var dataSource:FaceViewDataSource!//protocel
     
     func scale(gesture:UIPinchGestureRecognizer) -> () {
         if gesture.state == .Changed {
